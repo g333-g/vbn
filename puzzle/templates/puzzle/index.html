@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8"><title>Interactive Treasure Hunt</title></head>
+  <body>
+    <h1>Welcome to the Interactive Treasure Hunt!</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Solve the Puzzle</button>
+    </form>
+
+    {% if result %}
+      <h2>Results</h2>
+      <p>{{ result.number_msg }}</p>
+      <p>{{ result.text_msg }}</p>
+      <p>{{ result.treasure_msg }}</p>
+    {% endif %}
+  </body>
+</html>
